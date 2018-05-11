@@ -5,20 +5,31 @@ class App extends React.Component {
       activeVideo: exampleVideoData[0],
       videos: exampleVideoData  
     }
+
+
   }
+  // getYouTubeVideos(query, key) {
+  //   searchYouTube({query, key, 5}, ca)
+  // }
   
   updateActiveVideo (newActiveVideo) {
     this.setState({
       activeVideo: newActiveVideo
     })
   }
+
+  updateVideos ({items}) {
+    this.setState({
+      videos: items
+    });
+  } 
   
   render() {
     return (
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em> Test 1</h5></div>
+            <Search onClickCb={this.updateVideos.bind(this)}/>
           </div>
         </nav>
         <div className="row">
